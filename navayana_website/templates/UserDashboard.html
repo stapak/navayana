@@ -1,0 +1,82 @@
+{% extends "UserLayout.html" %}
+{% block links %}
+<a class="mr-5 hover:text-gray-900" href="/addarticle">Add Article</a>
+<a class="mr-5 hover:text-gray-900" href="/change-password">Change Password</a>
+{% endblock %}
+
+
+
+
+
+{% block body %}
+<h1>Welcome-</h1>
+{% with messages=get_flashed_messages(with_categories=true)%}
+{% if messages %}
+{% for category,message in messages %}
+{% if category=='error' %}
+
+  
+   <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+    <strong class="font-bold">Member Not Added!</strong>
+    <span class="block sm:inline"> {{message}}</span>
+    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+    </span>
+  </div>
+
+{% else %}
+
+
+<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert" >
+    <strong class="font-bold"></strong>
+    <span class="block sm:inline"> {{message}}</span>
+    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+    </span>
+  </div>
+
+{% endif %}
+{% endfor %}
+{% endif%}
+{% endwith %}
+
+<div class="container px-5 py-24 mx-auto">
+  <div class="flex flex-col text-center w-full mb-20">
+    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"> Your Articles </h1>
+    <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
+  </div>
+  <section class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="-my-8 divide-y-2 divide-gray-100">
+      {% for article in user.articles %}
+      <div class="py-8 flex flex-wrap md:flex-nowrap" >
+        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700">{{article.author}}</span>
+          <span class="mt-1 text-gray-500 text-sm">{{article.date_posted}}</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{article.title}}</h2>
+          <p class="leading-relaxed">{{article.description}}</p>
+          <a class="text-indigo-500 inline-flex items-center mt-4" >Edit 
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a class="text-indigo-500 inline-flex items-center mt-4" >Delete
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+  </section>
+  
+
+
+
+{% endblock %}
