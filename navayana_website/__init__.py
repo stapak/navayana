@@ -41,10 +41,10 @@ def webserver():
     login_manager.login_view='auth.login'
     login_manager.init_app(app)
 
-    from .model import Users,Articles
+    from .model import Users
 
     @login_manager.user_loader
-    def load_user(userid):
-        return Users.query.get(userid)
+    def load_user(id):
+        return Users.query.get(int(id))
 
     return app
