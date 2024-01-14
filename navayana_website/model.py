@@ -18,13 +18,14 @@ class Articles(db.Model):
     author = db.Column(db.String(20), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=True)
     Last_updated= db.Column(db.DateTime,nullable=False)
-    author_email = db.Column(db.String(80), db.ForeignKey('users.email'))
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
 
 
 class Users(db.Model,UserMixin):
+    id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(50),nullable=False)
-    email=db.Column(db.String(50),primary_key=True)
+    email=db.Column(db.String(50),nullable=False,unique=True)
     password=db.Column(db.String(1000),nullable=False)
     articles=db.relationship('Articles')
 

@@ -25,7 +25,7 @@ def login():
         UserId=request.form.get('Email')
         entered_password=request.form.get('password')
         
-        user=Users.query.filter_by(userid=UserId).first()
+        user=Users.query.filter_by(email=UserId).first()
         if user :
             if check_password_hash(user.password,entered_password):
                 
@@ -47,7 +47,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('homepage'))
+    return redirect(url_for('pages.homepage'))
 
 @auth.route('/change-admin-password',methods=['GET','POST'])
 def changeAdminpassword():
@@ -57,29 +57,32 @@ def changeAdminpassword():
 
 # Function to change password for normal user
 
-@auth.route('/change-password',methods=['GET','POST'])
+@auth.route('/changepassword',methods=['GET','POST'])
 @login_required
 def change_password():
-    if current_user:
-        if request.method == 'POST':
-            UserId=request.form.get('email')
-            oldpassword=request.form.get('old_passwrod')
-            newpassword=request.form.get('new_passowrd')
-            confirm_password=request.form.get('confirm_password')
+    if request.method == 'POST':
+        oldpassword=request.form.get ('old_password')
+        newpassword=request.form.get('new_password')
+        confirm_password=request.form.get('confirm_password')
 
-            user=Users.query.filter_by(email=session['user']).first()
-            if  check_password_hash(user.password,oldpassword):
-                    if len(newpassword)<8:
-                        return render_template('Password must have a minimum of 8 character.')
-                    elif newpassword != confirm_password:
-                        return render_template('changepassword.html',error="passwords Does not match")
-                    else:
-                        new_passowrd_hash=generate_password_hash(newpassword,method='pbkdf2:sha256')
-            
+        user=current_user
+        if  check_password_hash(user.password,oldpassword):
+            if len(newpassword)<8:
+                return render_template('Password must have a minimum of 8 character.')
+            elif newpassword != confirm_password:
+                return render_template('changepassword.html',error="Passwords don't match")
             else:
-                return render_template('changepassword.html',error="Passwords do not match!")
-    else: 
+                new_passowrd_hash=generate_password_hash(newpassword,method='pbkdf2:sha256')
+                user.password=new_passowrd_hash
+                db.session.commit()
+                flash("password changed successfully!",category="success")
+                return redirect(url_for('pages.Dashboard'))
+        else:
+            return render_template('changepassword.html',error="Wrong Password!")
+
+    else:
         return render_template('changepassword.html')
+
     
 
 
@@ -94,7 +97,7 @@ def AddMember():
         upassword=request.form.get('password')
         confirm_password=request.form.get('confirm_password')
 
-        user=Users.query.filter_by(userid=uemail).first()
+        user=Users.query.filter_by(email=uemail).first()
         if user:
             flash('Email Already registered !',category='error')
         elif len(fullname) <= 5:
@@ -106,7 +109,7 @@ def AddMember():
         elif upassword !=confirm_password:
             flash('Password does not match',category='error')
         else:
-            user=Users(name=fullname,userid=uemail,password=generate_password_hash(upassword,method='pbkdf2:sha256'))
+            user=Users(name=fullname,email=uemail,password=generate_password_hash(upassword,method='pbkdf2:sha256'))
             db.session.add(user)
             db.session.commit()
             flash('Member added!!',category='success')

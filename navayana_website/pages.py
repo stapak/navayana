@@ -68,13 +68,11 @@ def AdminDashboard():
 @pages.route('/dashboard')
 @login_required
 def Dashboard():
-        user=Users.query.filter_by(userid=current_user).first()
-        return render_template('UserDashboard.html',user=user)
+        return render_template('UserDashboard.html',user=current_user)
 
 
 # This method id used to upload articles to the data base with add the neccessary requirements 
 @pages.route('/addarticle',methods=['GET','POST'])
-@login_required
 def addarticle():
         user=current_user
         if request.method=='POST':

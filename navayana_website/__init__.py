@@ -45,6 +45,10 @@ def webserver():
 
     @login_manager.user_loader
     def load_user(id):
-        return Users.query.get(int(id))
+        return Users.query.get(id)
 
     return app
+
+def UserTest():
+    from .model import Users
+    return Users
