@@ -36,9 +36,12 @@ def login():
                 return redirect(url_for('pages.Dashboard'))
             else:
                 return render_template('Login.html',error="Wrong password !")
-        elif UserId == params['UserId'] and entered_password == params['admin_password']:
-            session['user']=UserId
-            return redirect(url_for('pages.AdminDashboard'))
+        elif UserId == params['UserId'] :
+            if check_password_hash(params['admin_password'],entered_password):
+                session['user']=UserId
+                return redirect(url_for('pages.AdminDashboard'))
+            else:
+                return render_template('Login.html',error="Admin Passowrd Does not match !")
         else:
             return render_template('Login.html',error="User not found contact admin !")
     else: 
@@ -75,8 +78,7 @@ def changeAdminpassword():
                     return render_template('AdminPasswordC.html',error="Passwords don't match")
                 else:
                     new_passowrd_hash=generate_password_hash(newpassword,method='pbkdf2:sha256')
-                    with open(r'C:\Users\HP\Desktop\website\navayana_website\credentials.json','w') as c:
-                        json.dump(params, c, admin_password=new_passowrd_hash)
+                    params['admin_password']=new_passowrd_hash
                     
                     flash("password changed successfully!",category="success")
                     return redirect(url_for('pages.AdminDashboard'))
@@ -87,7 +89,7 @@ def changeAdminpassword():
             return render_template('AdminPasswordC.html')
         
     else:
-        return redirect(url_for('pages.home'))
+        return redirect(url_for('pages.homepage'))
 
 
 
