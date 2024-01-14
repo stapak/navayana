@@ -9,7 +9,6 @@
 
 
 {% block body %}
-<h1>Welcome-{{user.name}}</h1>
 {% with messages=get_flashed_messages(with_categories=true)%}
 {% if messages %}
 {% for category,message in messages %}
@@ -41,42 +40,65 @@
 {% endwith %}
 
 <div class="container px-5 py-24 mx-auto">
-  <div class="flex flex-col text-center w-full mb-20">
-    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"> Your Articles </h1>
-    <p class="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
-  </div>
-  <section class="text-gray-600 body-font overflow-hidden">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="-my-8 divide-y-2 divide-gray-100">
+  <div class="flex flex-col text-center w-full mb-20" >
+    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Welcome {{user.name}}</h1>
+    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Your articles</p>
+  
+  <section class="text-gray-600 body-font overflow-hidden" style="background-color: rgba(23, 153, 204, 0.374);">
+    
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" style="background-color: firebrick;">
+              <tr>
+                  <th scope="col" class="px-6 py-3">
+                      Article Title
+                  </th>
+                  
+                  <th scope="col" class="px-6 py-3">
+                      Date Posted
+                  </th>
+                 
+                  <th colspan="2" style="text-align: center;">Action</th>
+              </tr>
+          </thead>
+          <tbody>
       {% for article in user.articles %}
       <div class="py-8 flex flex-wrap md:flex-nowrap" >
         <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-          <span class="font-semibold title-font text-gray-700">{{article.author}}</span>
-          <span class="mt-1 text-gray-500 text-sm">{{article.date_posted}}</span>
-        </div>
-        <div class="md:flex-grow">
-          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{article.title}}</h2>
-          <p class="leading-relaxed">{{article.description}}</p>
-          <a class="text-indigo-500 inline-flex items-center mt-4" >Edit 
-              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-          <a class="text-indigo-500 inline-flex items-center mt-4" >Delete
-            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"></path>
-            <path d="M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-        </div>
-      </div>
+          <tr>
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{article.title}}
+            </th>
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{article.date_posted}}
+            </th>
+            
+            <td class="px-6 py-4">
+                <a href="/EditArticle/{{article.articleid}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                style="text-align: center;">Edit</a>
+            </td>
+            <td class="px-6 py-4">
+                <a href="/DeleteArticle/{{article.articleid}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                style="text-align: center;">Delete</a>
+                
+            </td>
+        </tr>
+        
       {% endfor %}
+    </tbody>
+  </table>
     </div>
     </div>
   </section>
-  
 
 
 
 {% endblock %}
+
+
+
+
+
+      
+      
+    
+    

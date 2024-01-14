@@ -13,24 +13,20 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         
-        <form id="articleForm" action="/Edit-Article/article.articleid" method="POST"
+        <form id="articleForm" action="/EditArticle/{{article.articleid}}" method="POST"
         style="display: flex; flex-direction: column;">
             
         <label for="title" style="margin-bottom: 8px;" >Title:</label>    
         <input type="text" id="title" name="title"  style=" margin-bottom: 16px;padding: 8px;
-            border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" value="article.title" >
+            border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" value="{{article.title}}" >
 
             <label for="description"  style="margin-bottom: 8px;" >Description:</label>
             <input type="text" id="description" name="description"  style=" margin-bottom: 16px;padding: 8px;
-            border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" value="article.description">
+            border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" value="{{article.description}}">
 
             <label for="content"  style="margin-bottom: 8px;" >Content:</label>
-            <textarea id="content" name="content" rows="8" required  style=" margin-bottom: 16px;padding: 8px;
-            border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" value="article.content" ></textarea>
-
-
-            
-
+            <textarea id="content" name="content" rows="8"  style=" margin-bottom: 16px;padding: 8px;
+            border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" >{{article.content}}</textarea>
 
             <button type="submit" style=" padding: 10px;
             background-color:firebrick;

@@ -1,6 +1,6 @@
 {% extends "UserLayout.html" %}
 {% block links %}
-
+<a class="mr-5 hover:text-gray-900" href="/addarticle">Add Article</a>
 
 {% endblock %}
 
@@ -14,20 +14,15 @@
             <p style="color: red;">{{ error }}</p>
             {% endif %}
            
-            <form action="/changepassword" method="POST">
+            <form action="/EditAuthor" method="POST">
                 <h1 class="mb-8 text-3xl text-center" style="color: firebrick;">change Password</h1>
 
-                <input 
-                    type="email"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="email"
-                    placeholder="email"  required/>
-    
+                <label for="password" class="leading-7 text-sm text-gray-600">Enter Author Details</label>
                 <input 
                     type="password"
                     class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="old_password"
-                    placeholder="Old Password"  required/>
+                    name="email"
+                    placeholder="Author Email"  required/>
     
                 <input 
                     type="password"
