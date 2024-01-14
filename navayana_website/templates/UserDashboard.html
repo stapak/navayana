@@ -9,7 +9,7 @@
 
 
 {% block body %}
-<h1>Welcome-</h1>
+<h1>Welcome-{{user.name}}</h1>
 {% with messages=get_flashed_messages(with_categories=true)%}
 {% if messages %}
 {% for category,message in messages %}
