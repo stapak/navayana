@@ -1,5 +1,6 @@
 {% extends "AdminLayout.html" %}
 {% block links %}
+<a class="mr-5 hover:text-gray-900" href="/">HomePage</a>
 <a class="mr-5 hover:text-gray-900" href="/AddAuthor" style="color: black;">Add member</a>
 <a class="mr-5 hover:text-gray-900" href="/change-admin-password" style="color: black;">change Admin Password</a>
 {% endblock %}
@@ -41,101 +42,102 @@
 {% endif%}
 {% endwith %}
 
-<h1>Users<h1></h1>
-
-
-<section class="text-gray-600 body-font overflow-hidden" style="background-color: rgba(23, 153, 204, 0.374);">
-    
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" style="background-color: firebrick;">
-          <tr>
-              <th scope="col" class="px-6 py-3">
-                 Author Name
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Take Action on Article and Users</h1>
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4 md:w-1/2 w-full">
+        <div class="h-full bg-gray-100 p-8 rounded">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" style="background-color:  #357ec7;">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Article Title
+                    </th>
+                    
+                    <th scope="col" class="px-6 py-3">
+                        Date Posted
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Description
+                  </th>
+                   
+                    <th  style="text-align: center;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for article in articles %}
+        <div class="py-8 flex flex-wrap md:flex-nowrap" >
+          <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+            <tr>
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{article.title}}
               </th>
-              
-              
-            </th>
-             
-              <th  style="text-align: center;">Action</th>
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{article.date_posted}}
+              </th>
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{article.description}}
+              </th>
+          
+              <td class="px-6 py-4">
+                  <a href="/AdminDeleteArticle/{{article.articleid}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                  style="text-align: center;">Delete</a>
+                  
+              </td>
           </tr>
-      </thead>
-      <tbody>
-  {% for user in users %}
-  <div class="py-8 flex flex-wrap md:flex-nowrap" >
-    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-      <tr>
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {{user.name}}
+          
+        {% endfor %}
+      </tbody>
+      </table>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="p-4 md:w-1/2 w-full">
+        <div class="h-full bg-gray-100 p-8 rounded">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" style="background-color:  #357ec7;">
+    <tr>
+        <th scope="col" class="px-6 py-3">
+           Author Name
         </th>
         
-    
-        <td class="px-6 py-4">
-            <a href="/DeleteAuthor/{{user.id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
-            style="text-align: center;">Delete</a>
-            
-        </td>
+        
+      </th>
+       
+        <th  style="text-align: center;">Action</th>
     </tr>
-    
-  {% endfor %}
+</thead>
+<tbody>
+{% for user in users %}
+<div class="py-8 flex flex-wrap md:flex-nowrap" >
+<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+<tr>
+  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+      {{user.name}}
+  </th>
+  
+
+  <td class="px-6 py-4">
+      <a href="/DeleteAuthor/{{user.id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+      style="text-align: center;">Delete</a>
+      
+  </td>
+</tr>
+
+{% endfor %}
 </tbody>
 </table>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
---------------------------------------
-<h1>Article</h1>
-
-<section class="text-gray-600 body-font overflow-hidden" style="background-color: rgba(23, 153, 204, 0.374);">
-    
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" style="background-color: firebrick;">
-          <tr>
-              <th scope="col" class="px-6 py-3">
-                  Article Title
-              </th>
-              
-              <th scope="col" class="px-6 py-3">
-                  Date Posted
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Date Posted
-            </th>
-             
-              <th  style="text-align: center;">Action</th>
-          </tr>
-      </thead>
-      <tbody>
-  {% for article in articles %}
-  <div class="py-8 flex flex-wrap md:flex-nowrap" >
-    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-      <tr>
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {{article.title}}
-        </th>
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {{article.date_posted}}
-        </th>
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {{article.description}}
-        </th>
-    
-        <td class="px-6 py-4">
-            <a href="/AdminDeleteArticle/{{article.articleid}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
-            style="text-align: center;">Delete</a>
-            
-        </td>
-    </tr>
-    
-  {% endfor %}
-</tbody>
-</table>
-</div>
-</div>
-</section>
-
-
-<h1>Users<h1>
 
 {% endblock %}
 

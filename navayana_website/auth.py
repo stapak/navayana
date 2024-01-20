@@ -22,8 +22,11 @@ auth=Blueprint('auth',__name__)
 # Function used to direct user to the login page name value is used to input
 @auth.route('/login',methods=['GET','POST'])
 def login():
-    #if 'user' in session or current_user:
-    if request.method == 'POST':
+    if 'user' in session:
+        return redirect(url_for('pages.AdminDashboard'))
+    
+        
+    elif request.method == 'POST':
         UserId=request.form.get('Email')
         entered_password=request.form.get('password')
         
