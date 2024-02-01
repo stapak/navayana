@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 
-  This page is home template for  pages used by others rather than "Navayana Team" it is main template for ohter
+  This page is home template for  pages used by others rather than "Reach Team" it is main template for ohter
 pages such as 'locate us','team','articles' and other non member pages.
  
  -->
@@ -10,8 +10,8 @@ pages such as 'locate us','team','articles' and other non member pages.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="{{ url_for('static',filename='logo.jpg') }}" type="image/x-icon">
-    <title>Navayana</title>
+    <link rel="icon" href="{{ url_for('static',filename='blog.png') }}" type="image/x-icon">
+    <title>Reach</title>
     <style>
       header {
         background-color:  #357ec7;
@@ -41,15 +41,15 @@ pages such as 'locate us','team','articles' and other non member pages.
   <header class="text-gray-600 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <div id="logo"><img src="{{ url_for('static',filename='logo.jpg') }}" alt="Navayana Law Office"  ></div>
-        <span class="ml-3 text-xl" style="color:white ;">Navyana Law Office</span>
+        <div id="logo"><img src="{{ url_for('static',filename='blog.png') }}" alt="Reach Law Office"  ></div>
+        <span class="ml-3 text-xl" style="color:white ;">Reach blogs</span>
       </a>
       {% block links%}
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
         <a class="mr-5 hover:text-gray-900" href="/" style="color: black;">Home</a>
         <a class="mr-5 hover:text-gray-900" href="/aritclespage" style="color: black;">Articles</a>
         <a class="mr-5 hover:text-gray-900" href="/team" style="color: black;" >Our Team</a>
-        <a class="mr-5 hover:text-gray-900" href="/LocateUs" style="color: black;" >Locate Us</a>
+        
       </nav>
     {% endblock %}
       <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" onclick="redirect()">Login
@@ -64,9 +64,9 @@ pages such as 'locate us','team','articles' and other non member pages.
   <footer class="text-gray-600 body-font">
     <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
       <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <span class="ml-3 text-xl">Navayana</span>
+        <span class="ml-3 text-xl">Reach</span>
       </a>
-      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 Navayana-web version 1.0-
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 Reach-web version 1.0-
         <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">all rights are reserved.</a>
       </p>
       <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

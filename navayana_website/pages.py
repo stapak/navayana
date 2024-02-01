@@ -23,7 +23,8 @@ from flask_login import login_required,current_user
 @pages.route('/')
 def homepage():
     latest_entries = Articles.query.order_by(Articles.articleid.desc()).limit(4).all()
-    return render_template('Homepage.html',latest_entries=latest_entries)
+    article_list=len(latest_entries)
+    return render_template('Homepage.html',latest_entries=latest_entries,no=article_list)
 
 # this funciton maintains locate us page.
 @pages.route('/aritclespage')

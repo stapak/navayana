@@ -25,7 +25,10 @@ def login():
     if 'user' in session:
         return redirect(url_for('pages.AdminDashboard'))
     
-        
+    elif current_user.is_active != False:
+        return redirect(url_for('pages.Dashboard'))
+    
+    
     elif request.method == 'POST':
         UserId=request.form.get('Email')
         entered_password=request.form.get('password')

@@ -11,12 +11,12 @@
       </div>
       
       <div class="flex flex-wrap -m-4">
-        {% if latest_entries[3]==None %}
+        {% if no < 4 %}
         {%else%}
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div class="bg-gray-100 p-6 rounded-lg">
             <a href='/readarticles/{{latest_entries[0].articleid}}'>
-            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='law.jpeg') }}" alt="content">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog1.jpeg') }}" alt="content">
             <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[0].author}}</h3>
             <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[0].title}}</h2>
             <p class="leading-relaxed text-base">{{latest_entries[0].description}}</p>
@@ -27,7 +27,7 @@
           <div class="xl:w-1/4 md:w-1/2 p-4">
             <div class="bg-gray-100 p-6 rounded-lg">
               <a href='/readarticles/{{latest_entries[1].articleid}}'>
-              <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='OIP.jpeg') }}" alt="content">
+              <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog_image.jpeg') }}" alt="content">
               <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[1].author}}</h3>
               <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[1].title}}</h2>
               <p class="leading-relaxed text-base">{{latest_entries[1].description}}</p>
@@ -38,7 +38,7 @@
             <div class="xl:w-1/4 md:w-1/2 p-4">
               <div class="bg-gray-100 p-6 rounded-lg">
                 <a href='/readarticles/{{latest_entries[2].articleid}}'>
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='law.jpeg') }}" alt="content">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog1.jpeg') }}" alt="content">
                 <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[2].author}}</h3>
                 <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[2].title}}</h2>
                 <p class="leading-relaxed text-base">{{latest_entries[2].description}}</p>
@@ -49,7 +49,7 @@
               <div class="xl:w-1/4 md:w-1/2 p-4">
                 <div class="bg-gray-100 p-6 rounded-lg">
                   <a href='/readarticles/{{latest_entries[3].articleid}}'>
-                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='OIP.jpeg') }}" alt="content">
+                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog_image.jpeg') }}" alt="content">
                   <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[3].author}}</h3>
                   <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[3].title}}</h2>
                   <p class="leading-relaxed text-base">{{latest_entries[3].description}}</p>

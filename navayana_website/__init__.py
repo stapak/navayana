@@ -4,9 +4,6 @@ This file converts any folder into python package.
 This file is initialized when server starts.
 
 """
-
-
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import json
@@ -16,7 +13,7 @@ db=SQLAlchemy()
 #current_dir = os.path.dirname('__init__.py')
 #json_file_path = os.path.join(current_dir, 'credentials.json')
 
-with open(r'C:\Users\HP\Desktop\website\navayana_website\credentials.json','r') as c:
+with open(r'C:\Users\HP\Desktop\blog website\navayana\navayana_website\credentials.json','r+') as c:
     params=json.load(c)["params"]
     
 

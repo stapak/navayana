@@ -2,7 +2,6 @@
 {% block links %}
 <a class="mr-5 hover:text-gray-900" href="/dashboard">Dashboard</a>
 <a class="mr-5 hover:text-gray-900" href="/editarticles">Edit Article</a>
-<a class="mr-5 hover:text-gray-900" href="/delete articles">Delete Article</a>
 {% endblock %}
 
 {% block body %}
@@ -15,7 +14,7 @@
         
         <form id="articleForm" action="/addarticle" method="POST"
         style="display: flex; flex-direction: column;">
-            
+        <h1 class="mb-8 text-3xl text-center" style="color:  #357ec7;">Add Article</h1>
         <label for="title" style="margin-bottom: 8px;" >Title:</label>    
         <input type="text" id="title" name="title"  style=" margin-bottom: 16px;padding: 8px;
             border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" required>
