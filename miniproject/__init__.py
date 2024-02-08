@@ -13,7 +13,7 @@ db=SQLAlchemy()
 #current_dir = os.path.dirname('__init__.py')
 #json_file_path = os.path.join(current_dir, 'credentials.json')
 
-with open(r'C:\Users\HP\Desktop\blog website\navayana\navayana_website\credentials.json','r+') as c:
+with open(r'C:\Users\HP\Desktop\blog website\navayana\miniproject\credentials.json','r+') as c:
     params=json.load(c)["params"]
     
 
