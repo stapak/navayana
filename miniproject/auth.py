@@ -4,12 +4,10 @@ It contains all the information of the login, page , created
 
 """
 
-
-
 from flask import Blueprint,render_template, request, redirect, url_for, session, flash
 from .model import Users
 from . import params,db
-from . import pages
+
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import login_user,logout_user,current_user,login_required
 import json
