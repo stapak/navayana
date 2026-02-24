@@ -1,63 +1,101 @@
 {% extends "HomeLayout.html" %}
 {% block body %}
-<section class="text-gray-600 body-font" style="background-image:  {url_for('static',filename='background.jpeg')};">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap w-full mb-20">
-        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Latest Articles</h1>
-          <div class="h-1 w-20 bg-indigo-500 rounded" style="background-color:  #357ec7;"></div>
-        </div>
-        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500"></p>
-      </div>
-      
-      <div class="flex flex-wrap -m-4">
-        {% if no < 4 %}
-        {%else%}
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <a href='/readarticles/{{latest_entries[0].articleid}}'>
-            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog1.jpeg') }}" alt="content">
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[0].author}}</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[0].title}}</h2>
-            <p class="leading-relaxed text-base">{{latest_entries[0].description}}</p>
-            </a>
-          </div>
+
+<section class="bg-slate-900 py-24 min-h-screen">
+
+  <div class="container mx-auto px-6">
+
+    <!-- ================= FEATURED LATEST BOX ================= -->
+    {% if latest_entries and latest_entries|length > 0 %}
+    {% set latest = latest_entries[0] %}
+
+    <div class="mb-20 bg-slate-800 border border-slate-700 rounded-xl shadow-2xl p-8 relative overflow-hidden">
+
+      <div class="absolute top-0 left-0 h-full w-2 bg-red-600"></div>
+
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+
+        <!-- Left Content -->
+        <div class="max-w-2xl">
+          <p class="text-sm uppercase tracking-widest text-red-500 font-bold mb-3">
+            🔥 Latest Drop
+          </p>
+
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+            {{ latest.title }}
+          </h2>
+
+          <p class="text-gray-400 leading-relaxed mb-6">
+            {{ latest.description }}
+          </p>
+
+          <a href="/readarticles/{{latest.articleid}}"
+             class="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+            Read Full Article →
+          </a>
         </div>
 
-          <div class="xl:w-1/4 md:w-1/2 p-4">
-            <div class="bg-gray-100 p-6 rounded-lg">
-              <a href='/readarticles/{{latest_entries[1].articleid}}'>
-              <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog_image.jpeg') }}" alt="content">
-              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[1].author}}</h3>
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[1].title}}</h2>
-              <p class="leading-relaxed text-base">{{latest_entries[1].description}}</p>
-              </a>
-            </div>
-          </div>
-          
-            <div class="xl:w-1/4 md:w-1/2 p-4">
-              <div class="bg-gray-100 p-6 rounded-lg">
-                <a href='/readarticles/{{latest_entries[2].articleid}}'>
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog1.jpeg') }}" alt="content">
-                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[2].author}}</h3>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[2].title}}</h2>
-                <p class="leading-relaxed text-base">{{latest_entries[2].description}}</p>
-                </a>
-              </div>
-            </div>
-            
-              <div class="xl:w-1/4 md:w-1/2 p-4">
-                <div class="bg-gray-100 p-6 rounded-lg">
-                  <a href='/readarticles/{{latest_entries[3].articleid}}'>
-                  <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ url_for('static',filename='blog_image.jpeg') }}" alt="content">
-                  <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{latest_entries[3].author}}</h3>
-                  <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{latest_entries[3].title}}</h2>
-                  <p class="leading-relaxed text-base">{{latest_entries[3].description}}</p>
-                  </a>
-                </div>
-              </div>
-              {%endif%}
+        <!-- Featured Image -->
+        <div class="w-full md:w-1/3">
+          <img src="{{ url_for('static', filename='blog3.jpeg') }}"
+               class="rounded-lg shadow-lg object-cover w-full h-56"
+               alt="latest">
+        </div>
+
       </div>
+
     </div>
-  </section>
+    {% endif %}
+
+
+    <!-- ================= SECTION HEADER ================= -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-16">
+      <div>
+        <h1 class="text-4xl font-extrabold text-white mb-3 uppercase tracking-wide">
+          Latest Articles
+        </h1>
+        <div class="h-1 w-24 bg-red-600 rounded-full"></div>
+      </div>
+      <p class="text-gray-300 mt-6 md:mt-0 max-w-md">
+        Stories straight from your favorite heroes.
+      </p>
+    </div>
+
+
+    <!-- ================= ARTICLE GRID ================= -->
+    {% if no >= 1 %}
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      {% for article in latest_entries[:4] %}
+      <a href="/readarticles/{{article.articleid}}"
+         class="group bg-slate-800 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden hover:-translate-y-1 border-t-4 border-red-600">
+
+        <!-- Alternating Images -->
+        <img class="h-44 w-full object-cover"
+             src="{{ url_for('static', filename='blog1.jpeg') if loop.index0 % 2 == 0 else url_for('static', filename='blog2.jpeg') }}"
+             alt="content">
+
+        <div class="p-6">
+          <p class="text-xs uppercase tracking-wider text-red-500 font-bold mb-2">
+            {{article.author}}
+          </p>
+
+          <h2 class="text-lg font-bold text-white group-hover:text-red-500 transition mb-3">
+            {{article.title}}
+          </h2>
+
+          <p class="text-gray-400 text-sm leading-relaxed">
+            {{article.description}}
+          </p>
+        </div>
+
+      </a>
+      {% endfor %}
+
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
 {% endblock %}

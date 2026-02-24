@@ -1,23 +1,92 @@
 {% extends "HomeLayout.html" %}
 {% block body %}
-<section class="text-gray-600 body-font relative"  ">
-    <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap" style="opacity: 1;">
-      <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-        <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" 
-        src="https://maps.app.goo.gl/56gaRGbT6jkkRUSM7" 
-        ></iframe>
-        <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-          <div class="lg:w-1/2 px-6">
-            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">HeadOffice-</h2>
-            <p class="mt-1">No.205, II Floor, Triguna Icon, No.21, Wilson Garden, Bengaluru, Karnataka 560027</p>
-          </div>
-          <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
-            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-            <a class="text-indigo-500 leading-relaxed">example@email.com</a>
-            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-            <p class="leading-relaxed">123-456-7890</p>
-          </div>
-        </div>
+
+<section class="bg-slate-900 py-24 min-h-screen text-gray-200">
+
+  <div class="container mx-auto px-6">
+
+    <!-- Page Title -->
+    <div class="mb-16 text-center">
+      <h1 class="text-4xl font-extrabold text-white uppercase tracking-wide">
+        Locate Us (If You Can 👀)
+      </h1>
+      <div class="h-1 w-24 bg-red-600 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-10 items-center">
+
+      <!-- 🟣 Doctor Strange Portal Division -->
+      <div class="lg:w-2/3 bg-slate-800 rounded-xl overflow-hidden shadow-2xl border border-purple-700 relative p-12 text-center">
+
+        <h2 class="text-2xl font-bold text-purple-400 mb-6">
+          🔮 Multiverse Branch (Doctor Strange Approved)
+        </h2>
+
+        <p class="text-gray-300 mb-4">
+          Our office exists in multiple timelines.  
+          If you see a glowing orange portal — that’s probably reception.
+        </p>
+
+        <p class="text-gray-400 italic">
+          Coordinates update every time the timeline resets.
+        </p>
+
       </div>
-  </section>
+
+      <!-- Superhero Contact Card -->
+      <div class="lg:w-1/3 bg-slate-800 rounded-xl shadow-xl p-8 border-t-4 border-yellow-400">
+
+        <!-- 🟡 Tony Stark -->
+        <h2 class="text-sm font-bold tracking-widest text-yellow-400 uppercase">
+          Tony Stark (CEO & Funding)
+        </h2>
+        <p class="mt-2 text-gray-300">
+          “I built this office in a cave. With a box of scraps.”  
+          For investments, bring arc reactor compatible tech.
+        </p>
+
+        <!-- 🟢 Hulk -->
+        <h2 class="text-sm font-bold tracking-widest text-green-400 uppercase mt-8">
+          Bruce Banner (Technical Issues)
+        </h2>
+        <p class="mt-2 text-gray-300">
+          Handles server crashes.  
+          Please avoid loud noises.
+        </p>
+
+        <!-- 🔵 Spider-Man -->
+        <h2 class="text-sm font-bold tracking-widest text-blue-400 uppercase mt-8">
+          Peter Parker (Photography Dept.)
+        </h2>
+        <p class="mt-2 text-gray-300">
+          Usually swinging between buildings.  
+          Leaves sticky notes everywhere.
+        </p>
+
+        <!-- 🔴 J. Jonah Jameson -->
+        <h2 class="text-sm font-bold tracking-widest text-red-500 uppercase mt-8">
+          J. Jonah Jameson (Complaints Dept.)
+        </h2>
+        <p class="mt-2 text-gray-300">
+          Accepts complaints only in newspaper format.  
+          “Bring me pictures of Spider-Man!”
+        </p>
+
+        <!-- 🟣 General Contact -->
+        <h2 class="text-sm font-bold tracking-widest text-purple-400 uppercase mt-8">
+          General Inquiries
+        </h2>
+        <p class="mt-2 text-gray-300">
+          Send a raven.  
+          Or try example@email.com (if the multiverse is stable).
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 {% endblock %}

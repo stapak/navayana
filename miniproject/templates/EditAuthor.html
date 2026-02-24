@@ -1,49 +1,81 @@
-{% extends "UserLayout.html" %}
-{% block links %}
-<a class="mr-5 hover:text-gray-900" href="/addarticle">Add Article</a>
+{% extends "AdminLayout.html" %}
 
+{% block links %}
+<a href="/admindashboard" class="hover:text-red-400 transition">Dashboard</a>
+<a href="/AddAuthor" class="ml-6 hover:text-red-400 transition">Add Member</a>
+<a href="/EditAuthor" class="ml-6 text-red-400 font-semibold">Edit Author</a>
 {% endblock %}
 
+{% block body %}
 
-{% block body%}
-<section>
-<div class="bg-grey-lighter min-h-screen flex flex-col">
-    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            {% if error %}
-            <p style="color: red;">{{ error }}</p>
-            {% endif %}
-           
-            <form action="/EditAuthor" method="POST">
-                <h1 class="mb-8 text-3xl text-center" style="color:  #357ec7;">change Password</h1>
+<div class="max-w-xl mx-auto bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-10">
 
-                <label for="password" class="leading-7 text-sm text-gray-600">Enter Author Details</label>
-                <input 
-                    type="password"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="email"
-                    placeholder="Author Email"  required/>
-    
-                <input 
-                    type="password"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="new_password"
-                    placeholder="New Passwrod" required/>
-                <input 
-                    type="password"
-                    class="block border border-grey-light w-full p-3 rounded mb-4"
-                    name="confirm_password"
-                    placeholder="Confirm Password" required/>
-    
-                <button
-                    type="submit"
-                    class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1" 
-                    style="background-color:  #357ec7;">submit</button>
-                </form> 
-            
-        </div>
-        </div>
+    <h1 class="text-4xl font-bold text-center text-red-500 mb-10 tracking-wide">
+        Edit Author Password
+    </h1>
+
+    {% if error %}
+    <div class="mb-6 bg-red-900 border border-red-600 text-red-300 px-6 py-4 rounded shadow">
+        {{ error }}
     </div>
+    {% endif %}
+
+    <form action="/EditAuthor" method="POST" class="space-y-6">
+
+        <!-- Author Email -->
+        <div>
+            <label class="block text-gray-300 mb-2 text-lg">Author Email</label>
+            <input 
+                type="email"
+                name="email"
+                placeholder="Enter Author Email"
+                required
+                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg 
+                       text-white text-lg
+                       focus:outline-none focus:border-red-500 focus:ring-1 
+                       focus:ring-red-500 transition">
+        </div>
+
+        <!-- New Password -->
+        <div>
+            <label class="block text-gray-300 mb-2 text-lg">New Password</label>
+            <input 
+                type="password"
+                name="new_password"
+                placeholder="Enter New Password"
+                required
+                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg 
+                       text-white text-lg
+                       focus:outline-none focus:border-red-500 focus:ring-1 
+                       focus:ring-red-500 transition">
+        </div>
+
+        <!-- Confirm Password -->
+        <div>
+            <label class="block text-gray-300 mb-2 text-lg">Confirm New Password</label>
+            <input 
+                type="password"
+                name="confirm_password"
+                placeholder="Confirm New Password"
+                required
+                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg 
+                       text-white text-lg
+                       focus:outline-none focus:border-red-500 focus:ring-1 
+                       focus:ring-red-500 transition">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-4 text-center">
+            <button type="submit"
+                class="bg-yellow-600 hover:bg-yellow-500 px-8 py-3 rounded-lg 
+                       text-white text-lg font-semibold tracking-wide 
+                       shadow-lg transition transform hover:scale-105">
+                Update Author
+            </button>
+        </div>
+
+    </form>
+
 </div>
-</section>
-{% endblock%}  
+
+{% endblock %}

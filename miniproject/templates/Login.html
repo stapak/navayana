@@ -1,33 +1,81 @@
 {% extends "HomeLayout.html"%}
 {% block body %}
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
-      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-        <h1 class="title-font font-medium text-3xl text-gray-900">Get ready to share your knowldge with others</h1>
-        <p class="leading-relaxed mt-4">Reader's exitment is few clicks way.</p>
+
+<section class="bg-slate-900 py-24 min-h-screen flex items-center">
+
+  <div class="container mx-auto px-6">
+
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left Side Message -->
+      <div>
+        <h1 class="text-4xl font-extrabold text-white leading-tight">
+          Assemble. Write. Inspire.
+        </h1>
+
+        <div class="h-1 w-24 bg-red-600 mt-6 rounded-full"></div>
+
+        <p class="mt-6 text-gray-400 text-lg leading-relaxed">
+          The Reach Editorial Avengers are always ready.  
+          Log in and unleash your storytelling powers.
+        </p>
       </div>
-      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign-In</h2>
+
+      <!-- Login Card -->
+      <div class="bg-slate-800 border border-gray-700 rounded-2xl shadow-2xl p-10">
+
+        <h2 class="text-2xl font-bold text-white mb-8 text-center">
+          Team Login
+        </h2>
+
         {% if error %}
-        <p style="color: red;">{{ error }}</p>
+        <div class="mb-6 p-3 bg-red-900/40 border border-red-600 rounded text-red-400 text-sm text-center">
+          {{ error }}
+        </div>
         {% endif %}
-        <form action="/login" method="POST">
-        <div class="relative mb-4">
-          <label for="Email" class="leading-7 text-sm text-gray-600">User ID</label>
-          <input type="text" id="Email" name="Email"  class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
-        </div>
-        <div class="relative mb-4">
-          <label for="password" class="leading-7 text-sm text-gray-600">Password</label>
-          <input type="password" id="password" name="password" 
-          class="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
-        </div>
-        <button class="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg" style="background-color: #357ec7" type="submit">Login</button>
+
+        <form action="/login" method="POST" class="space-y-6">
+
+          <!-- User ID -->
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">
+              User ID
+            </label>
+            <input type="text" name="Email"
+              class="w-full bg-slate-900 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition"
+              required>
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">
+              Password
+            </label>
+            <input type="password" name="password"
+              class="w-full bg-slate-900 border border-gray-600 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 transition"
+              required>
+          </div>
+
+          <!-- Button -->
+          <button type="submit"
+            class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition duration-300 shadow-lg">
+            Login
+          </button>
+
         </form>
-        <p class="text-xs text-gray-500 mt-3">*This Sign-in page is only for Reach Team</p>
-        <p class="text-xs text-gray-500 mt-3">*In case you forgot your password please contact Admin</p>
+
+        <!-- Notes -->
+        <div class="mt-8 text-center text-gray-500 text-xs space-y-2">
+          <p>* Access restricted to Reach Editorial Team</p>
+          <p>* Forgot password? Contact the Multiverse Admin</p>
+        </div>
+
       </div>
+
     </div>
-  </section>
 
- {% endblock %}
+  </div>
 
+</section>
+
+{% endblock %}
