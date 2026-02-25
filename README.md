@@ -86,12 +86,24 @@ The goal of the refactor was to improve usability, maintainability, and presenta
 ## 🖼 Application Preview
 
 ### Homepage
-![Homepage Preview](static/blog1.png)
+
+<p align="left">
+  <img src="docs/project-image-gallery/reader-interface/Homepage-1.png" width="400">
+</p>
+
 
 ### Admin Dashboard
-![Admin Dashboard Preview](static/blog2.png)
 
+<p align="left">
+  <img src="docs/project-image-gallery/admin-interface/admin-dashboard-1.png" width="400">
+</p>
 ---
+
+## Documentation
+
+Detailed UI breakdown with screenshots:
+
+👉 [User Interface Documentation](docs/interfaces.md)
 
 ## 📌 Design Decisions
 
