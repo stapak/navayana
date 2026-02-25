@@ -1,39 +1,119 @@
-# Navayana - A Modern Blogging Platform
+# 📝 Blogging Platform (Flask-Based CMS)
 
-Navayana is a full-stack web application that provides a clean, intuitive platform for writers and readers to create, share, and discover blog content. Built with a powerful Python Flask backend and a responsive Tailwind CSS frontend, this project allows users to manage their own posts seamlessly.
+A role-based blogging platform built with Flask that supports content creation, user management, and administrative controls.  
 
------
+This project was originally developed as a full-stack blog system and has recently been refactored and modernized for professional portfolio presentation.
 
-## 🚀 Features
+---
 
-  * **Full CRUD Functionality:** Users can **C**reate, **R**ead, **U**pdate, and **D**elete their own blog posts.
-  * **Dynamic Rendering:** Leverages Jinja templating with Flask to dynamically render content from the database for a fast user experience.
-  * **Responsive Design:** Utilizes Tailwind CSS to ensure the website is fully responsive and looks great on all devices, from desktops to mobile phones.
-  * **Database Integration:** Connects to a robust MySQL database to securely store and manage user and post data.
-  * **(Optional Feature to Add):** User Authentication: Secure user registration and login system to manage posts.
-  * **(Optional Feature to Add):** Public Sharing: Posts are available publicly on the internet for anyone to read.
+## 🚀 Overview
 
------
+This application is a content management system (CMS) that enables:
 
-## 🛠️ Tech Stack
+- 👤 Authors to create, edit, and manage blog posts
+- 🛠 Administrators to manage users and site content
+- 🌐 Public users to browse and read published articles
 
-This project was built using the following technologies:
+The system focuses on clean architecture, role-based access control, and a structured template design.
 
-  * **Backend:** Python, Flask
-  * **Frontend:** HTML, Tailwind CSS, Jinja2
-  * **Database:** MySQL
-  * **Version Control:** Git
+---
 
------
+## 🧱 Tech Stack
 
-## 📸 Screenshots
+- **Backend:** Flask (Python)
+- **Frontend:** Jinja2 Templates + Tailwind CSS
+- **Database:** SQL-based relational database
+- **Authentication:** Role-based access control (Admin / Author)
+- **Version Control:** Git
 
-Here are a few screenshots of the application:
+---
 
------
+## 👤 Author Features
 
-*Caption: The post editor allows for easy creation and editing of blog content.*
+- Create new blog posts
+- Edit existing posts
+- Delete own posts
+- Change account password
+- Responsive dashboard interface
 
------
+---
 
-*Caption: A clean and readable layout for viewing individual blog posts.*
+## 🛠 Admin Features
+
+- View all published articles
+- Delete articles (with confirmation handling)
+- Add new authors
+- Edit author credentials
+- Delete authors (with confirmation handling)
+- Change admin password
+- Scrollable and structured content management panels
+
+---
+
+## 🏠 Homepage Features
+
+- Featured latest article section
+- Grid layout for recent posts
+- Clean and responsive UI
+- Consistent design system across pages
+
+---
+
+## 🎨 UI & Refactor Improvements
+
+The project was recently enhanced to improve:
+
+- Unified layout structure across user and admin roles
+- Improved readability and editor layout
+- Safer delete operations via confirmation prompts
+- Scrollable admin management panels
+- Better visual hierarchy on homepage
+- Responsive layout refinements
+
+The goal of the refactor was to improve usability, maintainability, and presentation quality.
+
+---
+
+## 🔐 Role-Based Access
+
+| Role   | Capabilities |
+|--------|-------------|
+| Author | Manage own blog posts |
+| Admin  | Manage users and all content |
+
+---
+
+## 🖼 Application Preview
+
+### Homepage
+![Homepage Preview](static/blog1.png)
+
+### Admin Dashboard
+![Admin Dashboard Preview](static/blog2.png)
+
+---
+
+## 📌 Design Decisions
+
+- Separation of layout templates for maintainability
+- Role-based route protection
+- Simple confirmation prompts for destructive actions
+- Structured template inheritance using Jinja2
+- Focus on clean UI/UX principles
+
+---
+
+## 📈 Potential Future Enhancements
+
+- Pagination for large datasets
+- Search functionality in admin dashboard
+- Rich text or Markdown editor
+- Image upload per article
+- REST API layer for frontend decoupling
+- Deployment with Docker or CI/CD integration
+
+---
+
+## 📄 License
+
+For educational and portfolio use.
